@@ -1,6 +1,4 @@
-﻿// Learn more about F# at http://fsharp.net
-//specifies the memory location of the class files
-//that will be needed in our application
+﻿module Example001.WinForm
 open System.Collections.Generic
 open System
 open System.Windows.Forms
