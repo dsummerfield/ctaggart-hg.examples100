@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="RyoushinSamples.Euclidean"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ryoushin="clr-namespace:RyoushinSamples.Converters">
+    
+    <UserControl.Resources>
+        <ryoushin:AreaConverter x:Key="AreaConverter" />
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" ToolTipService.ToolTip="click to add point" Background="#efefef" MouseLeftButtonUp="LayoutRoot_MouseLeftButtonUp">
+        <Border CornerRadius="3" Padding="4" Height="32" VerticalAlignment="Top" Background="Silver">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="area (units):" VerticalAlignment="Center"/>
+                <TextBlock x:Name="txt" 
+                           FontWeight="Bold" 
+                           Foreground="Black" 
+                           VerticalAlignment="Center" Margin="5,0"
+                           Text="{Binding ElementName=poly, Path=Points, Converter={StaticResource AreaConverter}}" />
+                <Button Content="clear shape" Click="Button_Click" />
+            </StackPanel>
+        </Border>
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cnv2">
+        <Polygon x:Name="poly" 
+                 Fill="Red" 
+                 Stroke="Black" 
+                 StrokeThickness="1"
+                 Points="0,0 100,0 100,100 0,100" /></Canvas>
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cnv" />
+    </Grid>
+</UserControl>
