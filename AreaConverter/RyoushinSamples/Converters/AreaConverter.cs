@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace RyoushinSamples.Converters
 {
@@ -18,11 +9,9 @@ public class AreaConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is System.Windows.Media.PointCollection)
+        if (value is PointCollection)
         {
-            double area = Pacem.Science.Geometry.EuclideanGeometry.Area2D(
-                (System.Windows.Media.PointCollection)value
-                );
+            double area = Pacem.Science.Geometry.EuclideanGeometry.Area2D((PointCollection)value);
             if (targetType == typeof(double))
                 return area;
             if (targetType == typeof(string))
