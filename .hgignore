@@ -1,3 +1,5 @@
 glob:*.suo
 glob:bin/*
 glob:obj/*
+glob:*.user
+glob:Bin/*
