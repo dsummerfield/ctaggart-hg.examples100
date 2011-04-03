@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+		  google.load("jquery", "1"); // 1.5.2
+		</script>
+    <script type="text/javascript" src="datajs-0.0.2.min.js"></script>
+    <script type="text/javascript">
+		  $(document).ready(function () {
+
+		    // http://datajs.codeplex.com/documentation
+
+		    OData.defaultHttpClient.enableJsonpCallback = true;
+
+		    OData.read("http://odata.netflix.com/v1/Catalog/Genres",
+        function (data, request) {
+          var html = "";
+          for (var i = 0; i < data.results.length; i++) {
+            html += "<div>" + data.results[i].Name + "</div>";
+          }
+          document.getElementById("Genres").innerHTML = html;
+        }, function (err) {
+          alert("Error occurred " + err.message);
+        });
+
+		  });
+		</script>
+		<title>Genres</title>
+	</head>
+  <body>
+    <div id="Genres"></div>
+	</body>
+</html>
